@@ -35,5 +35,10 @@
       "email": "Email"
     },
     "right": "All rights reserved."
+  },
+  "news": {
+    "title": "Latest News",
+    "text": "Stay updated with our latest news and insights.",
+    "back": "Go Back"
   }
 }

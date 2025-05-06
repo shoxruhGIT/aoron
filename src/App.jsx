@@ -11,6 +11,7 @@ import {
   TermsPage,
 } from "../src/components";
 import { Route, Routes } from "react-router-dom";
+import NewsDetail from "./components/NewsDetail";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/terms" element={<TermsPage />} />
+        <Route path="/news/:id" element={<NewsDetail />} />
       </Routes>
       <Footer />
     </div>
