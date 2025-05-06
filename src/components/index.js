@@ -1,0 +1,9 @@
+export { default as Navbar } from "./Navbar";
+export { default as HomePage } from "./HomePage";
+export { default as Footer } from "./Footer";
+export { default as CatalogPage } from "./CatalogPage";
+export { default as AboutPage } from "./AboutPage";
+export { default as NewsPage } from "./NewsPage";
+export { default as ContactPage } from "./ContactPage";
+export { default as CartPage } from "./CartPage";
+export { default as TermsPage } from "./TermsPage";

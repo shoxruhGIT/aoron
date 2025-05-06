@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #0a0a0a;
+  --color-card: #ffffff;
+  --color-card-foreground: #0a0a0a;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #0a0a0a;
+  --color-primary: #1a1a1a;
+  --color-primary-foreground: #fafafa;
+  --color-secondary: #f4f4f5;
+  --color-secondary-foreground: #1a1a1a;
+  --color-muted: #f1f1f9;
+  --color-muted-foreground: #666c80;
+  --color-accent: #f1f1f9;
+  --color-accent-foreground: #1a1a1a;
+  --color-destructive: #ec5a5a;
+  --color-destructive-foreground: #fafafa;
+  --color-border: #e5e5ee;
+  --color-input: #e5e5ee;
+  --color-ring: #0a0a0a;
+  --color-radius: 0.5rem;
+  --color-sidebar-background: #fafafa;
+  --color-sidebar-foreground: #4a4a5f;
+  --color-sidebar-primary: #1a1a1a;
+  --color-sidebar-primary-foreground: #fafafa;
+  --color-sidebar-accent: #f1f1f9;
+  --color-sidebar-accent-foreground: #1a1a1a;
+  --color-sidebar-border: #e6eaf7;
+  --color-sidebar-ring: #3b82f6;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.glassmorphism {
+  border-width: 1px;
+  border-color: #fff3;
+  background-color: #fffc;
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-backdrop-blur: blur(12px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
+    var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale)
+    var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert)
+    var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
+    var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
+    var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale)
+    var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert)
+    var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
+    var(--tw-backdrop-sepia);
+}
+
+.c {
+  color: #ececf1;
+}

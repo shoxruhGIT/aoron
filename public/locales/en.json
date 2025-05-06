@@ -1,0 +1,39 @@
+{
+  "navbar": {
+    "home": "Home",
+    "catalog": "Catalog",
+    "about": "About",
+    "news": "News",
+    "contact": "Contact"
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "p1": "These Terms of Service govern your use of our platform. By accessing or using our services, you agree to comply with these terms.",
+    "p2": "You are responsible for maintaining the confidentiality of your account details and are liable for any activities that occur under your account.",
+    "p3": "We reserve the right to suspend or terminate your access to our services if you violate any of these terms.",
+    "back": "Go Back"
+  },
+  "footer": {
+    "title": "Premium quality menswear focused on exceptional materials and perfect fit.",
+    "shop": {
+      "title": "Shop",
+      "all": "View All Products",
+      "shirt": "t-shirts",
+      "shorts": "shorts",
+      "suits": "suits"
+    },
+    "company": {
+      "title": "Company",
+      "about": "About",
+      "contact": "Contact",
+      "policy": "Privacy Policy",
+      "terms": "Delivery terms"
+    },
+    "subscribe": {
+      "title": "Subscribe to our newsletter",
+      "desc": "Subscribe to receive updates, access to exclusive deals, and more.",
+      "email": "Email"
+    },
+    "right": "All rights reserved."
+  }
+}
