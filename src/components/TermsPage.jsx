@@ -12,7 +12,7 @@ const TermsPage = () => {
         <div className="max-w-[800px] mx-auto px-4">
           <div className="rounded-2xl shadow-lg p-4 md:p-6 space-y-8 bg-white text-neutral-900 ">
             <h1 className="text-3xl font-semibold text-center">
-              {t("terms.title")}
+              Terms of service
             </h1>
             <div className="flex flex-col items-start gap-4">
               <p className="text-xl">{t("terms.p1")}</p>
