@@ -35,5 +35,10 @@
       "email": "E-Mail"
     },
     "right": "Alle Rechte vorbehalten."
+  },
+  "news": {
+    "title": "Neuigkeiten",
+    "text": "Bleiben Sie informiert über unsere aktuellen Neuigkeiten und Einblicke.",
+    "back": "Zurückgehen"
   }
 }
