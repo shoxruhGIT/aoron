@@ -6,6 +6,13 @@
     "news": "Neuigkeiten",
     "contact": "Kontakt"
   },
+  "home": {
+    "title": "Premium Herrenbekleidung",
+    "desc": "Qualitätsstoffe. Perfekte Passform. Zeitloser Stil.",
+    "collectionLink": "Kollektion entdecken",
+    "productTitle": "Empfohlene Produkte",
+    "productSubtitle": "Entdecken Sie unsere sorgfältig ausgewählte Kollektion hochwertiger Herrenbekleidung, die aus den besten Materialien und mit Liebe zum Detail gefertigt wurde."
+  },
   "terms": {
     "title": "Servicebedingungen",
     "p1": "Diese Nutzungsbedingungen regeln Ihre Nutzung unserer Plattform. Durch den Zugriff auf oder die Nutzung unserer Dienste erklären Sie sich mit diesen Bedingungen einverstanden.",
@@ -98,5 +105,4 @@
     "role2": "Leiter des Designs",
     "text": ""
   }
-  
 }
