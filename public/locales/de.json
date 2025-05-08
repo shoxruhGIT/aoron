@@ -40,5 +40,63 @@
     "title": "Neuigkeiten",
     "text": "Bleiben Sie informiert über unsere aktuellen Neuigkeiten und Einblicke.",
     "back": "Zurückgehen"
+  },
+  "about": {
+    "h2": "Über AORON",
+    "p1": "AORON ist eine Herstellermarke, die stilvolle, qualitativ hochwertige und wettbewerbsfähige Kleidung für B2B-Partnerschaften anbietet. Wir sind seit 1991 tätig und spezialisieren uns auf die Herstellung von Herren- und Damenbekleidung, mit Fokus auf Großhandel, Einzelhandelsketten und Sonderanfertigungen für Marken und Boutiquen.",
+    "h3": "Heute entwickeln wir zwei Richtungen:",
+    "li": "Prince – eine klassische Linie von Herrenanzügen, bewährt in Qualität und Zeit;",
+    "li2": "AORON – eine moderne Marke mit erweitertem Sortiment: von Freizeitkleidung bis hin zu Accessoires und Schuhen.",
+    "h4": "Produktionsstätten",
+    "p2": "Unser Unternehmen begann mit einem Team von 4 Personen und beschäftigt heute über 100 Mitarbeiter. Im Sommer 2025 eröffnen wir eine neue Fabrik mit der Möglichkeit, die Produktion auf bis zu 500 Mitarbeiter und über 5000 Einheiten pro Monat auszuweiten.",
+    "ul": {
+      "title": "Wir bieten:",
+      "li1": "Stabile Volumen und Lieferfristen",
+      "li2": "Qualitätskontrolle in jeder Phase",
+      "li3": "Flexibilität für Eigenmarken",
+      "li4": "Individueller Logistik- und B2B-Ansatz"
+    },
+    "ul2": {
+      "title": "Warum uns wählen",
+      "li1": "Über 30 Jahre Erfahrung auf dem usbekischen Markt",
+      "li2": "Vollständiger Produktionszyklus – vom Design bis zur Verpackung",
+      "li3": "Moderne Modelle, inspiriert von globalen Trends",
+      "li4": "Günstige Bedingungen für Händler, Marktplätze und Geschäfte",
+      "li5": "Möglichkeit, Kollektionen für Ihre Marke zu erstellen"
+    },
+    "ul3": {
+      "title": "Neue Kollektion 2025",
+      "li1": "T-Shirts, Hemden und Shorts für Männer und Frauen",
+      "li2": "Schuhe, Taschen, Gürtel, Accessoires",
+      "li3": "Maßanfertigungen",
+      "li4": "Zusammenarbeiten und Kapselkollektionen nach Ihren Vorgaben"
+    },
+    "ul4": {
+      "title": "Bereit zur Zusammenarbeit",
+      "text": "Wir sind offen für die Zusammenarbeit mit:",
+      "li1": "Großabnehmern",
+      "li2": "Bekleidungsgeschäften",
+      "li3": "Online-Marktplätzen",
+      "li4": "Internationalen Einkäufern",
+      "li5": "Marken, die Kollektionen unter ihrem Namen produzieren möchten",
+      "p": "Kontaktieren Sie uns, um Kataloge und Muster zu erhalten"
+    },
+    "our": "Unsere Mission",
+    "p": "Herausragende Herrenmode zu schaffen, die Männer dabei unterstützt, ihr bestes Aussehen und Gefühl zu erreichen, mit Engagement für Qualität, Nachhaltigkeit und ethische Grundsätze.",
+    "values": {
+      "text": "Unsere Werte",
+      "title": "Qualität zuerst",
+      "title2": "Nachhaltigkeit",
+      "title3": "Nachhaltigkeit",
+      "description": "Wir machen keine Kompromisse bei der Qualität. Von Stoffen bis zur Verarbeitung wird jedes Element sorgfältig für Exzellenz ausgewählt.",
+      "description2": "Wir setzen uns für die Verringerung unserer Umweltbelastung durch verantwortungsvolle Beschaffung und nachhaltige Praktiken ein.",
+      "description3": "Wir machen keine Kompromisse bei der Qualität. Von Stoffen bis zur Verarbeitung wird jedes Element sorgfältig für Exzellenz ausgewählt."
+    },
+    "name": "Muhammed Aziz",
+    "role": "Gründer & Kreativdirektor",
+    "name2": "Abdulloh Hamid",
+    "role2": "Leiter des Designs",
+    "text": ""
   }
+  
 }
