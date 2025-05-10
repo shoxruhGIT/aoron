@@ -9,7 +9,7 @@ const NewsPage = () => {
   const navigate = useNavigate();
 
   const getNews = () => {
-    fetch("https://back.ifly.com.uz/api/news")
+    fetch("https://testaoron.limsa.uz/api/news")
       .then((res) => res.json())
       .then((data) => {
         setNews(data?.data);
@@ -27,7 +27,7 @@ const NewsPage = () => {
     return item[`${field}_${currentLang}`];
   };
 
-  const getImageUrl = (filename) => `https://back.ifly.com.uz/${filename}`;
+  const getImageUrl = (filename) => `https://testaoron.limsa.uz/${filename}`;
 
   const handleClick = (id) => {
     navigate(`/news/${id}`);

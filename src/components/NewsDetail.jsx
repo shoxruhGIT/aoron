@@ -10,7 +10,7 @@ const NewsDetail = () => {
   const lang = i18n.language || "en";
 
   useEffect(() => {
-    fetch(`https://back.ifly.com.uz/api/news/${id}`)
+    fetch(`https://testaoron.limsa.uz/api/news/${id}`)
       .then((res) => res.json())
       .then((data) => setNewsItem(data?.data))
       .catch((err) => console.error("Xatolik:", err));
@@ -26,7 +26,7 @@ const NewsDetail = () => {
   const handleClick = () => {
     navigate("/news");
   };
-  const getImageUrl = (filename) => `https://back.ifly.com.uz/${filename}`;
+  const getImageUrl = (filename) => `https://testaoron.limsa.uz/${filename}`;
 
   if (!newsItem)
     return (
