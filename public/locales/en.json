@@ -6,6 +6,14 @@
     "news": "News",
     "contact": "Contact"
   },
+  "home": {
+    "title": "Premium Menswear",
+    "subtitle": "Spring/Summer 2025",
+    "desc": "Quality fabrics. Perfect fit. Timeless style.",
+    "collectionLink": "Explore Collection",
+    "productTitle": "Featured Products",
+    "productSubtitle": "Discover our carefully selected collection of premium menswear, crafted with the finest materials and attention to detail."
+  },
   "terms": {
     "title": "Terms of Service",
     "p1": "These Terms of Service govern your use of our platform. By accessing or using our services, you agree to comply with these terms.",
@@ -35,5 +43,83 @@
       "email": "Email"
     },
     "right": "All rights reserved."
-  }
+  },
+  "news": {
+    "title": "Latest News",
+    "text": "Stay updated with our latest news and insights.",
+    "back": "Go Back"
+  },
+  "about": {
+    "h2": "About AORON",
+    "p1": "  AORON is a manufacturing brand offering stylish, quality and competitive apparel for B2B partnerships.  We have been operating since 1991 and specialize in creating men's and women's clothing, focused on wholesale, retail chains and custom orders for brands and boutiques.",
+    "h3": "Today we develop two directions:",
+    "li": "Prince - a classic line of men's suits, proven by time and quality;",
+    "li2": "AORON - a modern brand with an expanded assortment: from casual wear to accessories and shoes.",
+    "h4": "Production facilities",
+    "p2": " Our company started with a team of 4 people and today employs over 100 people. In the summer of 2025,we are launching a new factory with the ability to scale production - up to 500 employees and 5000+ units per month.",
+    "ul": {
+      "title": "We offer:",
+      "li1": "Stable volumes and delivery terms",
+      "li2": "Quality control at every stage",
+      "li3": "Flexibility to work under private label",
+      "li4": "LogisticsIndividual approach to B2B clients"
+    },
+    "ul2": {
+      "title": "Why choose us",
+      "li1": "More than 30 years of experience in the market of Uzbekistan",
+      "li2": "Full cycle of production - from design to packaging",
+      "li3": "Modern models inspired by global trends",
+      "li4": "Favorable conditions for distributors, marketplaces and stores",
+      "li5": "Ability to create collections for your brand"
+    },
+    "ul3": {
+      "title": "New assortment 2025",
+      "li1": "Men's and women's T-shirts, shirts, shorts",
+      "li2": "Shoes, bags, belts, accessories",
+      "li3": "Custom tailoring",
+      "li4": "Collaborations and capsule collections to your specifications"
+    },
+    "ul4": {
+      "title": "Ready for cooperation",
+      "text": "We are open to cooperation with:",
+      "li1": "Wholesale buyers",
+      "li2": "Clothing stores",
+      "li3": "Marketplaces",
+      "li4": "International buyers",
+      "li5": "Brands willing to produce collections under their name",
+      "p": "Contact us to get catalog, samples"
+    },
+    "our": "Our Mission",
+    "p": "  To create exceptional menswear that empowers men to look and feel their best, while maintaining a commitment to quality, sustainability, and ethical",
+
+    "values": {
+      "text": " Our Values",
+      "title": "Quality  First",
+      "title2": "Sustainability",
+      "title3": "Sustainability",
+      "description": "We never compromise on quality. From fabrics to construction, every element is carefully chosen for excellence.",
+      "description2": "We're committed to reducing our environmental impact through responsible sourcing and sustainable practices.",
+      "description3": "We never compromise on quality. From fabrics to construction, every element is carefully chosen for excellence."
+    },
+    "name": "Muhammed Aziz",
+    "role": "Founder & Creative Director",
+    "name2": "Abdulloh Hamid",
+    "role2": "Head of Design",
+    "text": ""
+  }, 
+  "catalog":{
+    "Sort by": "Sort by",
+    "Price: Low to High": "Price: Low to High",
+    "Price: High to Low": "Price: High to Low",
+    "OUR COLLECTION": "Our Collection",
+    "Browse our collection of premium menswear, designed with quality and style in mind.": "Browse our collection of premium menswear, designed with quality and style in mind.",
+    "Categories": "Categories",
+    "Sizes": "Sizes",
+    "Colors": "Colors",
+    "Clear filters": "Clear filters",
+    "View All Products": "View All Products",
+    "T-Shirts": "T-Shirts",
+    "Shorts": "Shorts",
+    "Suits": "Suits"
+}
 }
