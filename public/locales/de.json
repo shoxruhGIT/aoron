@@ -104,5 +104,27 @@
     "name2": "Abdulloh Hamid",
     "role2": "Leiter des Designs",
     "text": ""
+  },
+  "contact": {
+    "title": "Kontaktieren Sie uns",
+    "description": "Kontaktieren Sie uns bei Fragen zu unseren Produkten oder Dienstleistungen.",
+    "form": {
+      "c_info": "Kontaktinformationen",
+      "c_form": "Kontaktformular",
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "message": "Nachricht",
+      "address": "Adresse",
+      "button": "Nachricht senden",
+      "sending": "Wird gesendet..."
+    },
+    "Faq": {
+      "title": "Häufig gestellte Fragen",
+      "c_title1": "Wie finde ich meine Größe?",
+      "c_p1": "Sie können unseren Größenguide auf jeder Produktseite einsehen. Wenn Sie sich nicht sicher sind, kontaktieren Sie bitte unser Kundensupport-Team.",
+      "c_title2": "Wie lautet Ihre Rückgaberichtlinie?",
+      "c_p2": "Wir bieten eine 30-tägige Rückgabefrist für ungetragene Artikel in der Originalverpackung an. Weitere Informationen finden Sie auf unserer Seite Rückgabe & Umtausch."
+    }
   }
 }
