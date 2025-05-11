@@ -9,7 +9,7 @@ import "react-phone-input-2/lib/style.css";
 import { Toaster, toast } from "sonner";
 
 const ContactPage = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [isPending, setIsPending] = useState(false);
   const handleubmit = (e) => {
     e.preventDefault();

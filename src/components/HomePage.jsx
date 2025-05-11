@@ -67,7 +67,7 @@ const HomePage = () => {
         <div className="product-grid">
           {featuredProducts &&
             featuredProducts.map((product) => (
-              <div className="group relative animate-fade-in">
+              <div key={product.id} className="group relative animate-fade-in">
                 <Link
                   className="block overflow-hidden"
                   to={`/product/${product.id}`}

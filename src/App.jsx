@@ -8,6 +8,7 @@ import {
   HomePage,
   Navbar,
   NewsPage,
+  ProductDetailPage,
   TermsPage,
 } from "../src/components";
 import { Route, Routes } from "react-router-dom";
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/news/:id" element={<NewsDetail />} />
+        <Route path="/product/:id" element={<ProductDetailPage />} />
       </Routes>
       <Footer />
     </div>

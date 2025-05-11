@@ -7,3 +7,4 @@ export { default as NewsPage } from "./NewsPage";
 export { default as ContactPage } from "./ContactPage";
 export { default as CartPage } from "./CartPage";
 export { default as TermsPage } from "./TermsPage";
+export { default as ProductDetailPage } from "./ProductDetailPage";
