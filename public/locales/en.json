@@ -12,7 +12,11 @@
     "desc": "Quality fabrics. Perfect fit. Timeless style.",
     "collectionLink": "Explore Collection",
     "productTitle": "Featured Products",
-    "productSubtitle": "Discover our carefully selected collection of premium menswear, crafted with the finest materials and attention to detail."
+    "productSubtitle": "Discover our carefully selected collection of premium menswear, crafted with the finest materials and attention to detail.",
+    "viewAllLink": "View All Products",
+    "newTitle": "New Arrivals",
+    "saleTitle": "Sale",
+    "infoNotFound": "Information not found"
   },
   "terms": {
     "title": "Terms of Service",
