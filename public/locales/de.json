@@ -105,7 +105,7 @@
     "role2": "Leiter des Designs",
     "text": ""
   },
-  "catalog":{
+  "catalog": {
     "Sort by": "Sortieren nach",
     "Price: Low to High": "Preis: Niedrig bis Hoch",
     "Price: High to Low": "Preis: Hoch bis Niedrig",
@@ -119,5 +119,27 @@
     "T-Shirts": "T-Shirts",
     "Shorts": "Shorts",
     "Suits": "Anzüge"
-}
+  },
+  "contact": {
+    "title": "Kontaktieren Sie uns",
+    "description": "Kontaktieren Sie uns bei Fragen zu unseren Produkten oder Dienstleistungen.",
+    "form": {
+      "c_info": "Kontaktinformationen",
+      "c_form": "Kontaktformular",
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "message": "Nachricht",
+      "address": "Adresse",
+      "button": "Nachricht senden",
+      "sending": "Wird gesendet..."
+    },
+    "Faq": {
+      "title": "Häufig gestellte Fragen",
+      "c_title1": "Wie finde ich meine Größe?",
+      "c_p1": "Sie können unseren Größenratgeber nutzen, der auf jeder Produktseite verfügbar ist. Wenn Sie sich nicht sicher sind, kontaktieren Sie bitte unser Kundenserviceteam.",
+      "c_title2": "Wie ist Ihre Rückgaberegelung?",
+      "c_p2": "Wir bieten eine 30-tägige Rückgaberegelung für ungetragene Artikel in der Originalverpackung an. Weitere Informationen finden Sie auf unserer Seite 'Rückgabe & Umtausch'."
+    }
+  }
 }
