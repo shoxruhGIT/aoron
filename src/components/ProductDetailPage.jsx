@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { FaChevronUp } from "react-icons/fa";
+import { FiMinus, FiPlus } from "react-icons/fi";
 import { useParams } from "react-router-dom";
 
 const ProductDetailPage = () => {
-  const [featuredProducts, setFeaturedProducts] = useState(null);
+  const [featuredProducts, setFeaturedProducts] = useState([]);
+
+  const [quantity, setQuantity] = useState(1);
 
   const { id } = useParams();
 
-  // const product = featuredProducts.find(
-  //   (product) => product.id === id
-  // );
-  console.log(featuredProducts.filter((prd) => prd.id === id));
+  const product = featuredProducts.filter((pdct) => pdct.id === parseInt(id));
+  console.log(product);
 
   const getFeaturedPrd = () => {
     fetch("https://back.aoron.uz/api/product?page=1&limit=4")
@@ -27,9 +29,96 @@ const ProductDetailPage = () => {
   return (
     <main className="w-full grow pt-18">
       <section className="max-w-[1400px] mx-auto px-4 py-8">
-        <div className="flex items-center justify-between">
-          <h1>Hey</h1>
-        </div>
+        {product?.map((product) => (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div key={product?.id} className="space-x-4">
+              <div className="aspect-square bg-secondary/20 overflow-hidden">
+                <img
+                  className="w-full h-full object-cover object-center transition-all duration-300"
+                  src={`https://back.aoron.uz/${product?.images[0]}`}
+                  alt={product?.title_en}
+                />
+              </div>
+            </div>
+            <div className="flex flex-col items-start gap-4">
+              <h1 className="text-3xl ">{product?.title_en}</h1>
+              <p className="text-2xl font-medium">${product?.price}</p>
+              <p className="text-muted-foreground">{product?.description_en}</p>
+              <div className="">
+                <h3 className="text-sm font-medium mb-1">Material</h3>
+                <p className="text-sm text-muted-foreground">
+                  {product?.materials?.Вискоза}
+                </p>
+              </div>
+              <div className="">
+                <h3 className="text-sm font-medium mb-1">Size</h3>
+                <div className="flex flex-wrap gap-2">
+                  <p className="min-w-[3rem] p-2 text-sm border rounded-md transition-all hover:border-primary/50 hover:bg-primary hover:text-white">
+                    {product?.sizes?.map((item) => item?.size)}
+                  </p>
+                </div>
+              </div>
+              <div className="">
+                <h3 className="text-sm font-medium mb-1">Color</h3>
+                <div className="flex items-center space-x-1 mt-2">
+                  <p
+                    className="w-7 h-7 rounded-full border hover:ring-2 hover:ring-primary"
+                    style={{
+                      backgroundColor: `${product?.colors?.map(
+                        (color) => color?.color_en
+                      )}`,
+                    }}
+                  ></p>
+                </div>
+              </div>
+              <div className="">
+                <h3 className="text-sm font-medium mb-1">Quantity</h3>
+                <div className="flex items-center border border-input rounded-md w-32">
+                  <button
+                    onClick={() => {
+                      if (quantity > 1) {
+                        setQuantity(quantity - 1);
+                      }
+                    }}
+                    className="w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-foreground disabled:opacity-50"
+                  >
+                    <FiMinus />
+                  </button>
+                  <input
+                    type="number"
+                    className="w-12 h-10 text-center border-none focus:outline-none"
+                    min={1}
+                    value={quantity}
+                    onChange={(e) => {
+                      const value = Math.max(1, parseInt(e.target.value) || 1);
+                      setQuantity(value);
+                    }}
+                  />
+                  <button
+                    onClick={() => setQuantity(quantity + 1)}
+                    className="w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-foreground"
+                  >
+                    <FiPlus />
+                  </button>
+                </div>
+              </div>
+              <button className="w-full bg-black text-white cursor-pointer rounded-sm hover:opacity-80 transition-colors py-4">
+                Add to Cart
+              </button>
+              <div className="w-full border-t border-border pt-4 space-y-4">
+                <div className="">
+                  <button className="flex justify-between items-center w-full py-2">
+                    <h3 className="text-sm font-medium">Product Details</h3>
+                    <FaChevronUp />
+                  </button>
+                  <div className="py-3 text-sm text-muted-foreground animate-accordion-down">
+                    <p>This contains suits Вискоза: 100%, ensuring both comfort and durability. Designed with attention to detail, it features:</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </section>
     </main>
   );
