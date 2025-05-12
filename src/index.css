@@ -110,6 +110,10 @@ html {
   }
 }
 @media (min-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .section-container {
     padding-top: 6rem;
     padding-bottom: 6rem;
@@ -124,7 +128,7 @@ html {
 }
 @media (min-width: 1024px) {
   .product-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 @media (min-width: 1280px) {

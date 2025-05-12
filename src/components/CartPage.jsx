@@ -1,11 +1,132 @@
-import React from "react";
+import React, { useState } from "react";
+import { useWishlist } from "../hooks/useWishlist";
+import { FaX } from "react-icons/fa6";
+import { IoMdClose } from "react-icons/io";
+import { FiMinus, FiPlus } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import { IoWarningOutline } from "react-icons/io5";
+import CheckourModal from "../ui/checkoutModal";
 
 const CartPage = () => {
-  return <main className="w-full grow pt-18">
-    <section className="max-w-[1400px] mx-auto px-4 mt-4 py-8">
-        <h1 className="text-4xl text-center font-normal">Your Cart</h1>
-    </section>
-  </main>;
+  const { wishlist } = useWishlist();
+
+  // const [totalPrice, setTotalPrice] = useState(0);
+  const [isOpenModal, setIsOpenModal] = useState();
+
+  const openModal = () => setIsOpenModal(true);
+  const closeModal = () => setIsOpenModal(false);
+
+  return (
+    <main className="w-full grow pt-18">
+      <section className="max-w-[1400px] mx-auto px-4 mt-4 py-8">
+        <h1 className="text-4xl text-center font-normal mb-8">Your Cart</h1>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          <CheckourModal isOpen={isOpenModal} onClose={closeModal} />
+          <div className="lg:col-span-2 space-y-6">
+            {wishlist?.map((item) => (
+              <div className="flex gap-4 border border-border rounded-lg p-4 animate-fade-in">
+                <div className="w-26 h-32  bg-secondary/20 rounded-md overflow-hidden">
+                  <img
+                    src={`https://back.aoron.uz/${item?.product?.images[0]}`}
+                    alt={item?.product?.title_en}
+                  />
+                </div>
+                <div className="grow sm:ml-4">
+                  <div className="flex justify-between items-center">
+                    <div className="">
+                      <h3 className="font-medium">{item?.product?.title_en}</h3>
+                      <div className="">
+                        <p className="text-muted-foreground text-sm">
+                          Sizes:{" "}
+                          {item?.product?.sizes?.map((item) => item?.size)}
+                        </p>
+                        <p className="text-muted-foreground text-sm">
+                          Colors:
+                          {item?.product?.colors?.map(
+                            (color) => color?.color_en
+                          )}
+                        </p>
+                      </div>
+                    </div>
+                    <button className="cursor-pointer">
+                      <IoMdClose />
+                    </button>
+                  </div>
+                  <div className="flex justify-between items-center mt-4">
+                    <div className="flex items-center border border-input rounded-md w-32">
+                      <button
+                        // onClick={() => {
+                        //   if (quantity > 1) {
+                        //     setQuantity(quantity - 1);
+                        //   }
+                        // }}
+                        className="w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-foreground disabled:opacity-50"
+                      >
+                        <FiMinus />
+                      </button>
+                      <input
+                        type="number"
+                        className="w-12 h-10 text-center border-none focus:outline-none"
+                        min={1}
+                        value={item?.quantity}
+                        // onChange={(e) => {
+                        //   const value = Math.max(
+                        //     1,
+                        //     parseInt(e.target.value) || 1
+                        //   );
+                        //   setQuantity(value);
+                        // }}
+                      />
+                      <button
+                        // onClick={() => setQuantity(quantity + 1)}
+                        className="w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-foreground"
+                      >
+                        <FiPlus />
+                      </button>
+                    </div>
+                    <p className="font-medium">
+                      ${item?.product?.price * item?.quantity}.00
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="bg-secondary p-6 rounded-lg">
+            <h2 className="text-lg font-medium mb-4">Order Summary</h2>
+            <div className="space-y-3 mb-6">
+              <div className="flex items-center justify-between">
+                <span className="text-muted-foreground">Subtotal</span>
+                <span>$10</span>
+              </div>
+              <div className="pt-3 border-t border-border flex justify-between font-medium">
+                <span>Total</span>
+                <span>$10</span>
+              </div>
+              <button
+                onClick={openModal}
+                className="w-full btn-secondary bg-accent-foreground! cursor-pointer hover:opacity-80 transition-colors text-white mb-4"
+              >
+                Checkout
+              </button>
+              <Link
+                to="/catalog"
+                className="block w-full text-center text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Continue Shopping
+              </Link>
+              <div className="flex items-center gap-2 mt-8">
+                <IoWarningOutline />
+                <p className="text-xs text-muted-foreground">
+                  Delivery service is paid separately..
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
 };
 
 export default CartPage;

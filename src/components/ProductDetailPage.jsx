@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { FaChevronUp } from "react-icons/fa";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { useParams } from "react-router-dom";
+import ProductItem from "./ProductItem";
+import { useWishlist } from "../hooks/useWishlist";
+import { Toaster, toast } from "sonner";
 
 const ProductDetailPage = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
@@ -9,9 +12,9 @@ const ProductDetailPage = () => {
   const [quantity, setQuantity] = useState(1);
 
   const { id } = useParams();
+  const { toggleWishlist } = useWishlist();
 
   const product = featuredProducts.filter((pdct) => pdct.id === parseInt(id));
-  console.log(product);
 
   const getFeaturedPrd = () => {
     fetch("https://back.aoron.uz/api/product?page=1&limit=4")
@@ -28,10 +31,14 @@ const ProductDetailPage = () => {
 
   return (
     <main className="w-full grow pt-18">
+      <Toaster position="bottom-right" className="bg-blue-500" />
       <section className="max-w-[1400px] mx-auto px-4 py-8">
         {product?.map((product) => (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            <div key={product?.id} className="space-x-4">
+          <div
+            key={product?.id}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-10"
+          >
+            <div className="space-x-4">
               <div className="aspect-square bg-secondary/20 overflow-hidden">
                 <img
                   className="w-full h-full object-cover object-center transition-all duration-300"
@@ -102,7 +109,13 @@ const ProductDetailPage = () => {
                   </button>
                 </div>
               </div>
-              <button className="w-full bg-black text-white cursor-pointer rounded-sm hover:opacity-80 transition-colors py-4">
+              <button
+                onClick={() => {
+                  toggleWishlist({ product: product, quantity: quantity });
+                  toast.success("Add to Cart");
+                }}
+                className="w-full bg-black text-white cursor-pointer rounded-sm hover:opacity-80 transition-colors py-4"
+              >
                 Add to Cart
               </button>
               <div className="w-full border-t border-border pt-4 space-y-4">
@@ -112,13 +125,34 @@ const ProductDetailPage = () => {
                     <FaChevronUp />
                   </button>
                   <div className="py-3 text-sm text-muted-foreground animate-accordion-down">
-                    <p>This contains suits Вискоза: 100%, ensuring both comfort and durability. Designed with attention to detail, it features:</p>
+                    <p>
+                      This contains suits Вискоза: 100%, ensuring both comfort
+                      and durability. Designed with attention to detail, it
+                      features:
+                    </p>
+                    <ul className="list-disc list-inside mt-2 space-y-1">
+                      <li>Regular fit for everyday comfort</li>
+                      <li>High-quality stitching for durability</li>
+                      <li>
+                        Color:{" "}
+                        {product?.colors?.map((color) => color?.color_en)}
+                      </li>
+                      <li>Size: {product?.sizes?.map((size) => size?.size)}</li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         ))}
+      </section>
+      <section className="max-w-[1400px] mx-auto px-4 py-8 mt-20">
+        <h2 className="text-3xl mb-8">You may also like</h2>
+        <div className="product-grid">
+          {featuredProducts?.slice(0, 4)?.map((product) => (
+            <ProductItem product={product} type="new" key={product.id} />
+          ))}
+        </div>
       </section>
     </main>
   );
