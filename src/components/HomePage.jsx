@@ -9,7 +9,7 @@ const HomePage = () => {
   const [featuredProducts, setFeaturedProducts] = useState(null);
   const [newProducts, setNewProducts] = useState(null);
   const getFeaturedPrd = () => {
-    fetch("https://back.aoron.uz/api/product?page=1&limit=4")
+    fetch("https://back.aoron.uz/api/product")
       .then((data) => data.json())
       .then((data) => {
         if (data.success) {
