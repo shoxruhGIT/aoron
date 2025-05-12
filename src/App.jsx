@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   AboutPage,
   CartPage,
@@ -11,10 +11,15 @@ import {
   ProductDetailPage,
   TermsPage,
 } from "../src/components";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import NewsDetail from "./components/NewsDetail";
 
 const App = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div className="w-full">
       <Navbar />

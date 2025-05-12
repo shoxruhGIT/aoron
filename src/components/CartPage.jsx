@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useWishlist } from "../hooks/useWishlist";
-import { FaX } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { Link } from "react-router-dom";
@@ -8,7 +7,7 @@ import { IoWarningOutline } from "react-icons/io5";
 import CheckourModal from "../ui/checkoutModal";
 
 const CartPage = () => {
-  const { wishlist, deleteWishlist } = useWishlist();
+  const { wishlist, deleteWishlist, updateWishlistQuantity } = useWishlist();
 
   const [totalPrice, setTotalPrice] = useState(0);
   const [isOpenModal, setIsOpenModal] = useState();
@@ -18,13 +17,12 @@ const CartPage = () => {
 
   useEffect(() => {
     const total = wishlist.reduce(
-      (sum, item) => sum + item?.product?.price * item?.quantity,
+      (sum, item) => sum + item?.price * item?.quantity,
       0
     );
-    setTotalPrice(total);
 
-    console.log(totalPrice);
-  }, [totalPrice]);
+    setTotalPrice(total);
+  }, [wishlist]);
 
   return (
     <main className="w-full grow pt-18">
@@ -35,29 +33,26 @@ const CartPage = () => {
             <CheckourModal isOpen={isOpenModal} onClose={closeModal} />
             <div className="lg:col-span-2 space-y-6">
               {wishlist?.map((item) => (
-                <div key={item?.product?.id} className="flex gap-4 border border-border rounded-lg p-4 animate-fade-in">
+                <div
+                  key={item?.id}
+                  className="flex gap-4 border border-border rounded-lg p-4 animate-fade-in"
+                >
                   <div className="w-26 h-32  bg-secondary/20 rounded-md overflow-hidden">
                     <img
-                      src={`https://testaoron.limsa.uz/${item?.product?.images[0]}`}
-                      alt={item?.product?.title_en}
+                      src={`https://testaoron.limsa.uz/${item?.images[0]}`}
+                      alt={item?.title_en}
                     />
                   </div>
                   <div className="grow sm:ml-4">
                     <div className="flex justify-between items-center">
                       <div className="">
-                        <h3 className="font-medium">
-                          {item?.product?.title_en}
-                        </h3>
+                        <h3 className="font-medium">{item?.title_en}</h3>
                         <div className="">
                           <p className="text-muted-foreground text-sm">
-                            Sizes:{" "}
-                            {item?.product?.sizes?.map((item) => item?.size)}
+                            Sizes: {item?.activeSize}
                           </p>
                           <p className="text-muted-foreground text-sm">
-                            Colors:
-                            {item?.product?.colors?.map(
-                              (color) => color?.color_en
-                            )}
+                            Colors: {item?.activeColor}
                           </p>
                         </div>
                       </div>
@@ -71,11 +66,14 @@ const CartPage = () => {
                     <div className="flex justify-between items-center mt-4">
                       <div className="flex items-center border border-input rounded-md w-32">
                         <button
-                          // onClick={() => {
-                          //   if (quantity > 1) {
-                          //     setQuantity(quantity - 1);
-                          //   }
-                          // }}
+                          onClick={() => {
+                            if (item.quantity > 1) {
+                              updateWishlistQuantity(
+                                item?.id,
+                                item.quantity - 1
+                              );
+                            }
+                          }}
                           className="w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-foreground disabled:opacity-50"
                         >
                           <FiMinus />
@@ -85,23 +83,25 @@ const CartPage = () => {
                           className="w-12 h-10 text-center border-none focus:outline-none"
                           min={1}
                           value={item?.quantity}
-                          // onChange={(e) => {
-                          //   const value = Math.max(
-                          //     1,
-                          //     parseInt(e.target.value) || 1
-                          //   );
-                          //   setQuantity(value);
-                          // }}
+                          onChange={(e) => {
+                            const value = Math.max(
+                              1,
+                              parseInt(e.target.value) || 1
+                            );
+                            updateWishlistQuantity(item?.id, value);
+                          }}
                         />
                         <button
-                          // onClick={() => setQuantity(quantity + 1)}
+                          onClick={() => {
+                            updateWishlistQuantity(item?.id, item.quantity + 1);
+                          }}
                           className="w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-foreground"
                         >
                           <FiPlus />
                         </button>
                       </div>
                       <p className="font-medium">
-                        ${item?.product?.price * item?.quantity}.00
+                        ${item?.price * item?.quantity}.00
                       </p>
                     </div>
                   </div>

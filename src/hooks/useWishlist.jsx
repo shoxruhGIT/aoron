@@ -36,13 +36,13 @@ export const useWishlist = () => {
           if (item?.product?.id === product?.product?.id) {
             return {
               ...item,
-              quantity: item.quantity + 0.5,
+              quantity: item.quantity + 1,
             };
           }
           return item;
         });
       } else {
-        updatedWishlist = [...prevWishlist, { ...product, quantity: 1 }];
+        updatedWishlist = [...prevWishlist, { ...product }];
       }
 
       saveWishlistToStorage(updatedWishlist);
@@ -50,10 +50,21 @@ export const useWishlist = () => {
       return updatedWishlist;
     });
   };
+  const updateWishlistQuantity = (id, quantity) => {
+    const updatedWishlist = wishlist.map((item) => {
+      if (item?.id === id) {
+        return { ...item, quantity };
+      }
+      return item;
+    });
+
+    saveWishlistToStorage(updatedWishlist);
+    setWishlist(updatedWishlist);
+  };
 
   const deleteWishlist = (product) => {
     const deletedProduct = wishlist.filter(
-      (item) => item?.product?.id !== product?.product?.id
+      (item) => item?.id !== product?.id
     );
     saveWishlistToStorage(deletedProduct);
     setWishlist(deletedProduct);
@@ -61,6 +72,7 @@ export const useWishlist = () => {
 
   return {
     wishlist,
+    updateWishlistQuantity,
     toggleWishlist,
     deleteWishlist,
     isInWishlist,

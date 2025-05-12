@@ -10,13 +10,23 @@ const ProductDetailPage = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
 
   const [quantity, setQuantity] = useState(1);
+  const [activeSize, setActiveSize] = useState(null);
+  const [activeColor, setActiveColor] = useState(null);
 
   const { id } = useParams();
   const { toggleWishlist } = useWishlist();
 
   const product = featuredProducts.filter((pdct) => pdct.id === parseInt(id));
 
-  console.log(product);
+  const updatedProduct =
+    product.length > 0
+      ? {
+          ...product[0],
+          activeColor: activeColor,
+          activeSize: activeSize,
+          quantity: quantity,
+        }
+      : null;
 
   const getFeaturedPrd = () => {
     fetch("https://testaoron.limsa.uz/api/product?page=1&limit=4")
@@ -27,6 +37,7 @@ const ProductDetailPage = () => {
         }
       });
   };
+
   useEffect(() => {
     getFeaturedPrd();
   }, []);
@@ -55,11 +66,18 @@ const ProductDetailPage = () => {
               <p className="text-muted-foreground">{product?.description_en}</p>
               <div className="">
                 <h3 className="text-sm font-medium mb-1">Material</h3>
-                {product?.materials.map((material) => (
-                  <p key={material?.name} className="text-sm text-muted-foreground">
-                    {material?.name} {material?.value}%
-                  </p>
-                ))}
+                {product?.materials.length > 0 ? (
+                  product?.materials?.map((material) => (
+                    <p
+                      key={material?.name}
+                      className="text-sm text-muted-foreground"
+                    >
+                      {material?.name} {material?.value}%
+                    </p>
+                  ))
+                ) : (
+                  <p>No materials</p>
+                )}
               </div>
               <div className="">
                 <h3 className="text-sm font-medium mb-1">Size</h3>
@@ -69,8 +87,13 @@ const ProductDetailPage = () => {
                     .sort((a, b) => a.size.localeCompare(b.size))
                     .map((item) => (
                       <button
+                        onClick={() => setActiveSize(item?.size)}
                         key={item?.id}
-                        className="min-w-[3rem] p-2 text-sm border rounded-md transition-all hover:border-primary/50 hover:bg-primary hover:text-white cursor-pointer"
+                        className={`min-w-[3rem] p-2 text-sm border rounded-md transition-all ${
+                          activeSize === item?.size
+                            ? "bg-primary text-white border-primary"
+                            : "hover:border-primary/50 hover:bg-primary hover:text-white"
+                        }  cursor-pointer`}
                       >
                         {item?.size}
                       </button>
@@ -81,13 +104,18 @@ const ProductDetailPage = () => {
                 <h3 className="text-sm font-medium mb-1">Color</h3>
                 <div className="flex items-center space-x-1 mt-2">
                   {product?.colors?.map((color) => (
-                    <p
+                    <button
                       key={color?.id}
-                      className="w-7 h-7 rounded-full hover:ring-2 hover:ring-primary cursor-pointer"
+                      onClick={() => setActiveColor(color?.color_en)}
+                      className={`w-7 h-7 rounded-full ${
+                        activeColor === color?.color_en
+                          ? "ring-2 ring-primary"
+                          : "hover:ring-2 hover:ring-primary"
+                      }  cursor-pointer`}
                       style={{
                         backgroundColor: `${color?.color_en}`,
                       }}
-                    ></p>
+                    ></button>
                   ))}
                 </div>
               </div>
@@ -110,7 +138,10 @@ const ProductDetailPage = () => {
                     min={1}
                     value={quantity}
                     onChange={(e) => {
-                      const value = Math.max(1, parseInt(e.target.value) || 1);
+                      const value = Math.max(
+                        1,
+                        Number.parseInt(e.target.value) || 1
+                      );
                       setQuantity(value);
                     }}
                   />
@@ -124,8 +155,16 @@ const ProductDetailPage = () => {
               </div>
               <button
                 onClick={() => {
-                  toggleWishlist({ product: product, quantity: quantity });
-                  toast.success("Add to Cart");
+                  if (!activeSize) {
+                    toast.error("Please select a size");
+                    return;
+                  }
+                  if (!activeColor) {
+                    toast.error("Please select a color");
+                    return;
+                  }
+                  toggleWishlist(updatedProduct, quantity);
+                  toast.success("Added to Cart");
                 }}
                 className="w-full bg-black text-white cursor-pointer rounded-sm hover:opacity-80 transition-colors py-4"
               >
