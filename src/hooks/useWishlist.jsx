@@ -51,9 +51,18 @@ export const useWishlist = () => {
     });
   };
 
+  const deleteWishlist = (product) => {
+    const deletedProduct = wishlist.filter(
+      (item) => item?.product?.id !== product?.product?.id
+    );
+    saveWishlistToStorage(deletedProduct);
+    setWishlist(deletedProduct);
+  };
+
   return {
     wishlist,
     toggleWishlist,
+    deleteWishlist,
     isInWishlist,
     count: wishlist.length,
   };

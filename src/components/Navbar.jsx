@@ -2,9 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AoronLogo from "../assets/aoron_logo.png";
 import { useTranslation } from "react-i18next";
+import { useWishlist } from "../hooks/useWishlist";
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
+
+  const { count } = useWishlist();
 
   const currentLanguage = i18n.language;
 
@@ -86,7 +89,7 @@ const Navbar = () => {
               DE
             </button>
           </div>
-          <Link to="/cart">
+          <Link className="relative" to="/cart">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -103,6 +106,9 @@ const Navbar = () => {
               <path d="M3 6h18"></path>
               <path d="M16 10a4 4 0 0 1-8 0"></path>
             </svg>
+            <span className="absolute -top-3 -right-3 bg-primary text-primary-foreground rounded-full w-4 h-4 flex items-center justify-center text-xs">
+              {count}
+            </span>
           </Link>
         </div>
       </div>
