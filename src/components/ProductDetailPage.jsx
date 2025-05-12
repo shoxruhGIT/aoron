@@ -17,7 +17,7 @@ const ProductDetailPage = () => {
   const product = featuredProducts.filter((pdct) => pdct.id === parseInt(id));
 
   const getFeaturedPrd = () => {
-    fetch("https://back.aoron.uz/api/product?page=1&limit=4")
+    fetch("https://testaoron.limsa.uz/api/product?page=1&limit=4")
       .then((data) => data.json())
       .then((data) => {
         if (data.success) {
@@ -42,7 +42,7 @@ const ProductDetailPage = () => {
               <div className="aspect-square bg-secondary/20 overflow-hidden">
                 <img
                   className="w-full h-full object-cover object-center transition-all duration-300"
-                  src={`https://back.aoron.uz/${product?.images[0]}`}
+                  src={`https://testaoron.limsa.uz/${product?.images[0]}`}
                   alt={product?.title_en}
                 />
               </div>
