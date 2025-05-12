@@ -3,7 +3,7 @@ import I18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
 import Backend from "i18next-http-backend";
 import { initReactI18next } from "react-i18next";
 
-const language = localStorage.getItem("i18nextLng");
+const language = localStorage.getItem("i18nextLng") || "en";
 
 i18next
   .use(Backend)
