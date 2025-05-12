@@ -8,7 +8,7 @@ const ProductItem = ({ product, type = "usual" }) => {
       <Link className="block overflow-hidden" to={`/product/${product.id}`}>
         <div className="relative aspect-[3/4] overflow-hidden bg-secondary/20">
           <img
-            src={`https://back.aoron.uz/${product.images[0]}`}
+            src={`https://testaoron.limsa.uz/${product.images[0]}`}
             alt={product[`title_${lng}`]}
             className="object-cover object-center w-full h-full transition-transform duration-700 group-hover:scale-105"
           />

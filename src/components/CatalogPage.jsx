@@ -13,7 +13,7 @@ const CatalogPage = () => {
   const [selectedColor, setSelectedColor] = useState("");
 
   const fetchProducts = () => {
-    const baseURL = "https://back.aoron.uz/api/product";
+    const baseURL = "https://testaoron.limsa.uz/api/product";
     const queryParams = new URLSearchParams();
 
     if (selectedCategory) queryParams.append("category_id", selectedCategory);
@@ -159,7 +159,7 @@ const CatalogPage = () => {
                   <Link to={`/product/${product.id}`}>
                     <div className="relative aspect-[3/4] overflow-hidden bg-secondary/20">
                       <img
-                        src={`https://back.aoron.uz/${product.images[0]}`}
+                        src={`https://testaoron.limsa.uz/${product.images[0]}`}
                         alt={product.title_en}
                         className="object-cover object-center w-full h-full transition-transform duration-500 hover:scale-105"
                       />
