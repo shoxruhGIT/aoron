@@ -110,8 +110,8 @@
     "name2": "Abdulloh Hamid",
     "role2": "Head of Design",
     "text": ""
-  }, 
-  "catalog":{
+  },
+  "catalog": {
     "Sort by": "Sort by",
     "Price: Low to High": "Price: Low to High",
     "Price: High to Low": "Price: High to Low",
@@ -125,5 +125,27 @@
     "T-Shirts": "T-Shirts",
     "Shorts": "Shorts",
     "Suits": "Suits"
-}
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "Get in touch with us for any questions about our products or services.",
+    "form": {
+      "c_info": "Contact information",
+      "c_form": "Contact Form",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "address": "Address",
+      "button": "Send Message",
+      "sending": "Sending..."
+    },
+    "Faq": {
+      "title": "Frequently Asked Questions",
+      "c_title1": "How do I find my size?",
+      "c_p1": "You can refer to our size guide which is available on each product page. If you're still unsure, feel free to contact our customer support team for assistance",
+      "c_title2": "What is your return policy?",
+      "c_p2": "We offer a 30 day return policy for unworn items in their original packaging. Please visit our Returns & Exchanges page for more details ."
+    }
+  }
 }
