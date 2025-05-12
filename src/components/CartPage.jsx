@@ -38,7 +38,7 @@ const CartPage = () => {
                 <div key={item?.product?.id} className="flex gap-4 border border-border rounded-lg p-4 animate-fade-in">
                   <div className="w-26 h-32  bg-secondary/20 rounded-md overflow-hidden">
                     <img
-                      src={`https://back.aoron.uz/${item?.product?.images[0]}`}
+                      src={`https://testaoron.limsa.uz/${item?.product?.images[0]}`}
                       alt={item?.product?.title_en}
                     />
                   </div>
