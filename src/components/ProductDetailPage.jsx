@@ -16,6 +16,8 @@ const ProductDetailPage = () => {
 
   const product = featuredProducts.filter((pdct) => pdct.id === parseInt(id));
 
+  console.log(product);
+
   const getFeaturedPrd = () => {
     fetch("https://testaoron.limsa.uz/api/product?page=1&limit=4")
       .then((data) => data.json())
@@ -53,29 +55,40 @@ const ProductDetailPage = () => {
               <p className="text-muted-foreground">{product?.description_en}</p>
               <div className="">
                 <h3 className="text-sm font-medium mb-1">Material</h3>
-                <p className="text-sm text-muted-foreground">
-                  {product?.materials?.Вискоза}
-                </p>
+                {product?.materials.map((material) => (
+                  <p key={material?.name} className="text-sm text-muted-foreground">
+                    {material?.name} {material?.value}%
+                  </p>
+                ))}
               </div>
               <div className="">
                 <h3 className="text-sm font-medium mb-1">Size</h3>
                 <div className="flex flex-wrap gap-2">
-                  <p className="min-w-[3rem] p-2 text-sm border rounded-md transition-all hover:border-primary/50 hover:bg-primary hover:text-white">
-                    {product?.sizes?.map((item) => item?.size)}
-                  </p>
+                  {product?.sizes
+                    ?.slice()
+                    .sort((a, b) => a.size.localeCompare(b.size))
+                    .map((item) => (
+                      <button
+                        key={item?.id}
+                        className="min-w-[3rem] p-2 text-sm border rounded-md transition-all hover:border-primary/50 hover:bg-primary hover:text-white cursor-pointer"
+                      >
+                        {item?.size}
+                      </button>
+                    ))}
                 </div>
               </div>
               <div className="">
                 <h3 className="text-sm font-medium mb-1">Color</h3>
                 <div className="flex items-center space-x-1 mt-2">
-                  <p
-                    className="w-7 h-7 rounded-full border hover:ring-2 hover:ring-primary"
-                    style={{
-                      backgroundColor: `${product?.colors?.map(
-                        (color) => color?.color_en
-                      )}`,
-                    }}
-                  ></p>
+                  {product?.colors?.map((color) => (
+                    <p
+                      key={color?.id}
+                      className="w-7 h-7 rounded-full hover:ring-2 hover:ring-primary cursor-pointer"
+                      style={{
+                        backgroundColor: `${color?.color_en}`,
+                      }}
+                    ></p>
+                  ))}
                 </div>
               </div>
               <div className="">
@@ -137,7 +150,14 @@ const ProductDetailPage = () => {
                         Color:{" "}
                         {product?.colors?.map((color) => color?.color_en)}
                       </li>
-                      <li>Size: {product?.sizes?.map((size) => size?.size)}</li>
+                      <li>
+                        Size:{" "}
+                        {product?.sizes
+                          ?.slice()
+                          ?.sort((a, b) => a.size.localeCompare(b.size))
+                          .map((size) => size?.size)
+                          .join(" - ")}
+                      </li>
                     </ul>
                   </div>
                 </div>
