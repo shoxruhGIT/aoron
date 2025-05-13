@@ -11,7 +11,7 @@ const ProductDetailPage = () => {
 
   const [quantity, setQuantity] = useState(1);
   const [activeSize, setActiveSize] = useState(null);
-  const [activeColor, setActiveColor] = useState(null);
+  const [activeColor, setActiveColor] = useState([]);
 
   const { id } = useParams();
   const { toggleWishlist } = useWishlist();
@@ -106,9 +106,9 @@ const ProductDetailPage = () => {
                   {product?.colors?.map((color) => (
                     <button
                       key={color?.id}
-                      onClick={() => setActiveColor(color?.color_en)}
+                      onClick={() => setActiveColor(color)}
                       className={`w-7 h-7 rounded-full ${
-                        activeColor === color?.color_en
+                        activeColor === color
                           ? "ring-2 ring-primary"
                           : "hover:ring-2 hover:ring-primary"
                       }  cursor-pointer`}

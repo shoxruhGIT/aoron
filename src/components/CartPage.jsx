@@ -5,9 +5,15 @@ import { FiMinus, FiPlus } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { IoWarningOutline } from "react-icons/io5";
 import CheckourModal from "../ui/checkoutModal";
+import { useTranslation } from "react-i18next";
+import { toast, Toaster } from "sonner";
 
 const CartPage = () => {
   const { wishlist, deleteWishlist, updateWishlistQuantity } = useWishlist();
+
+  const { t } = useTranslation();
+
+  const currentLanguage = localStorage.getItem("i18nextLng");
 
   const [totalPrice, setTotalPrice] = useState(0);
   const [isOpenModal, setIsOpenModal] = useState();
@@ -26,8 +32,11 @@ const CartPage = () => {
 
   return (
     <main className="w-full grow pt-18">
+      <Toaster position="bottom-right" className="bg-blue-500" />
       <section className="max-w-[1400px] mx-auto px-4 mt-4 py-8">
-        <h1 className="text-4xl text-center font-normal mb-8">Your Cart</h1>
+        <h1 className="text-4xl text-center font-normal mb-8">
+          {t("cart.title")}
+        </h1>
         {wishlist.length >= 1 ? (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <CheckourModal isOpen={isOpenModal} onClose={closeModal} />
@@ -40,7 +49,13 @@ const CartPage = () => {
                   <div className="w-26 h-32  bg-secondary/20 rounded-md overflow-hidden">
                     <img
                       src={`https://testaoron.limsa.uz/${item?.images[0]}`}
-                      alt={item?.title_en}
+                      alt={
+                        currentLanguage === "en"
+                          ? `${item?.title_en}`
+                          : currentLanguage === "ru"
+                          ? `${item?.title_ru}`
+                          : `${item?.title_e}`
+                      }
                     />
                   </div>
                   <div className="grow sm:ml-4">
@@ -49,15 +64,22 @@ const CartPage = () => {
                         <h3 className="font-medium">{item?.title_en}</h3>
                         <div className="">
                           <p className="text-muted-foreground text-sm">
-                            Sizes: {item?.activeSize}
+                            {t("cart.product.size")}: {item?.activeSize}
                           </p>
                           <p className="text-muted-foreground text-sm">
-                            Colors: {item?.activeColor}
+                            {t("cart.product.color")}: {currentLanguage === "en"
+                              ? `${item?.activeColor?.color_en}`
+                              : currentLanguage === "ru"
+                              ? `${item?.activeColor?.color_ru}`
+                              : `${item?.activeColor?.color_de}`}
                           </p>
                         </div>
                       </div>
                       <button
-                        onClick={() => deleteWishlist(item)}
+                        onClick={() => {
+                          deleteWishlist(item);
+                          toast.success("Your items cancelled successfully!");
+                        }}
                         className="cursor-pointer"
                       >
                         <IoMdClose />
@@ -109,32 +131,36 @@ const CartPage = () => {
               ))}
             </div>
             <div className="max-h-[350px] bg-secondary p-6 rounded-lg">
-              <h2 className="text-lg font-medium mb-4">Order Summary</h2>
+              <h2 className="text-lg font-medium mb-4">
+                {t("cart.checkout.title")}
+              </h2>
               <div className="space-y-3 mb-6">
                 <div className="flex items-center justify-between">
-                  <span className="text-muted-foreground">Subtotal</span>
+                  <span className="text-muted-foreground">
+                    {t("cart.checkout.subtotal")}
+                  </span>
                   <span>${totalPrice}.00</span>
                 </div>
                 <div className="pt-3 border-t border-border flex justify-between font-medium">
-                  <span>Total</span>
+                  <span>{t("cart.checkout.total")}</span>
                   <span>${totalPrice}.00</span>
                 </div>
                 <button
                   onClick={openModal}
                   className="w-full btn-secondary bg-accent-foreground! cursor-pointer hover:opacity-80 transition-colors text-white mb-4"
                 >
-                  Checkout
+                  {t("cart.checkout.btn")}
                 </button>
                 <Link
                   to="/catalog"
                   className="block w-full text-center text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Continue Shopping
+                  {t("cart.checkout.btn2")}
                 </Link>
                 <div className="flex items-center gap-2 mt-8">
                   <IoWarningOutline />
                   <p className="text-xs text-muted-foreground">
-                    Delivery service is paid separately..
+                    {t("cart.checkout.warn")}
                   </p>
                 </div>
               </div>
@@ -162,12 +188,12 @@ const CartPage = () => {
                 </svg>
               </div>
             </div>
-            <h2 className="text-xl font-medium">Your cart is empty</h2>
+            <h2 className="text-xl font-medium">{t("cart.paragraph")}</h2>
             <p className="text-muted-foreground max-w-md mx-auto">
-              Looks like you haven't added anything to your cart yet.
+              {t("cart.desc")}
             </p>
             <button className="btn-secondary bg-accent-foreground! text-white hover:opacity-80 transition-colors cursor-pointer mt-4 inline-block">
-              <Link to="/catalog">Continue Shopping</Link>
+              <Link to="/catalog">{t("cart.btn")}</Link>
             </button>
           </div>
         )}

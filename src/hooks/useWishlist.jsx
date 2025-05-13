@@ -23,17 +23,17 @@ export const useWishlist = () => {
   }, []);
 
   const isInWishlist = (id) => {
-    return wishlist.some((item) => item?.product?.id === id);
+    return wishlist.some((item) => item?.id === id);
   };
   const toggleWishlist = (product) => {
-    const exists = isInWishlist(product?.product?.id);
+    const exists = isInWishlist(product?.id);
 
     setWishlist((prevWishlist) => {
       let updatedWishlist;
 
       if (exists) {
         updatedWishlist = prevWishlist.map((item) => {
-          if (item?.product?.id === product?.product?.id) {
+          if (item?.id === product?.id) {
             return {
               ...item,
               quantity: item.quantity + 1,

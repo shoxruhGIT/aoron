@@ -145,5 +145,23 @@
       "c_title2": "Wie ist Ihre Rückgaberegelung?",
       "c_p2": "Wir bieten eine 30-tägige Rückgaberegelung für ungetragene Artikel in der Originalverpackung an. Weitere Informationen finden Sie auf unserer Seite 'Rückgabe & Umtausch'."
     }
+  },
+  "cart": {
+    "title": "Ihr Warenkorb",
+    "paragraph": "Ihr Warenkorb ist leer",
+    "desc": "Es sieht so aus, als hätten Sie Ihrem Einkaufswagen noch nichts hinzugefügt.",
+    "btn": "Weiter einkaufen",
+    "checkout": {
+      "title": "Bestellübersicht",
+      "subtotal": "Zwischensumme",
+      "total": "Gesamtsumme",
+      "btn": "Zur Kasse",
+      "btn2": "Weiter einkaufen",
+      "warn": "Der Lieferservice wird separat bezahlt.."
+    },
+    "product": {
+      "color": "Größen",
+      "size": "Farben"
+    }
   }
 }

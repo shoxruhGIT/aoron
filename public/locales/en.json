@@ -147,5 +147,23 @@
       "c_title2": "What is your return policy?",
       "c_p2": "We offer a 30 day return policy for unworn items in their original packaging. Please visit our Returns & Exchanges page for more details ."
     }
+  },
+  "cart": {
+    "title": "Your Cart",
+    "paragraph": "Your cart is empty",
+    "desc": "Looks like you haven't added anything to your cart yet.",
+    "btn": "Continue Shopping",
+    "checkout": {
+      "title": "Order Summary",
+      "subtotal": "Subtotal",
+      "total": "Total",
+      "btn": "Checkout",
+      "btn2": "Continue Shopping",
+      "warn": "Delivery service is paid separately.."
+    },
+    "product": {
+      "color": "Colors",
+      "size": "Sizes"
+    }
   }
 }
