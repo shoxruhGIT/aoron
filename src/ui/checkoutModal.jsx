@@ -14,11 +14,9 @@ const CheckourModal = ({ isOpen, onClose }) => {
     city: "",
     whatsappNumber: "",
   });
-  console.log(wishlistData);
 
   const handleDetails = (e) => {
     const { name, value } = e.target;
-    console.log(e.target);
 
     setWishlistData((prev) => ({ ...prev, [name]: value }));
   };
