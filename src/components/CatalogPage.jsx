@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import NoProduct from "../ui/noProduct";
+import { RiMenuUnfold2Line } from "react-icons/ri";
 
 const CatalogPage = () => {
   const { t } = useTranslation();
@@ -100,6 +101,8 @@ const CatalogPage = () => {
       return 0;
     });
 
+  const [modal, setModal] = useState(false);
+
   return (
     <main className="w-full grow pt-18">
       <section className="py-10 mt-3 md:py-16 bg-secondary">
@@ -115,9 +118,9 @@ const CatalogPage = () => {
         </div>
       </section>
 
-      <section className="max-w-[1400px] mx-auto px-5 py-8 flex gap-6">
+      <section className="max-w-[1400px] mx-auto px-5 py-8 flex gap-6 max-[770px]:flex-col">
         {/* Sidebar filters */}
-        <aside className="w-64 pr-4">
+        <aside className="w-64 pr-4 max-[770px]:hidden">
           <h2 className="font-semibold text-lg mb-2">
             {t("catalog.Categories")}
           </h2>
@@ -221,7 +224,122 @@ const CatalogPage = () => {
             {t("catalog.Clear filters")}
           </button>
         </aside>
+        <div className="">
+          <button onClick={() => setModal(!modal)} className="text-2xl flex items-center gap-2">
+            {t("catalog.Categories")}
+            <RiMenuUnfold2Line className="text-2xl"/>
+          </button>
+        </div>
+        {modal ? (
+          <div>
+            <aside className="w-64 pr-4">
+              <h2 className="font-semibold text-lg mb-2">
+                {t("catalog.Categories")}
+              </h2>
+              <ul className="space-y-1">
+                <li>
+                  <button
+                    onClick={() => setSelectedCategory(null)}
+                    className={`block w-full text-left px-2 py-1 rounded cursor-pointer ${
+                      selectedCategory === null
+                        ? "bg-primary text-white"
+                        : "hover:bg-accent"
+                    }`}
+                  >
+                    {t("catalog.all")}
+                  </button>
+                </li>
+                {category?.slice(0, 3).map((cat) => (
+                  <li key={cat?.id}>
+                    <button
+                      onClick={() => setSelectedCategory(cat?.id)}
+                      className={`block w-full text-left px-2 py-1 rounded cursor-pointer ${
+                        selectedCategory === cat?.id
+                          ? "bg-primary text-white"
+                          : "hover:bg-accent"
+                      }`}
+                    >
+                      {currentLng === "en"
+                        ? cat.name_en
+                        : currentLng === "ru"
+                        ? cat.name_ru
+                        : cat.name_de}
+                    </button>
+                  </li>
+                ))}
+              </ul>
 
+              <h2 className="font-semibold text-lg mt-6 mb-2">
+                {t("catalog.Sizes")}
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {sizes?.map((size) => (
+                  <button
+                    key={size?.id}
+                    onClick={() =>
+                      setSelectedSize((prev) =>
+                        prev.includes(size?.id)
+                          ? prev.filter((id) => id !== size?.id)
+                          : [...prev, size?.id]
+                      )
+                    }
+                    className={`px-3 py-1 rounded border cursor-pointer ${
+                      selectedSize.includes(size?.id)
+                        ? "bg-primary text-white"
+                        : "hover:bg-primary hover:text-white"
+                    }`}
+                  >
+                    {size?.size}
+                  </button>
+                ))}
+              </div>
+
+              <h2 className="font-semibold text-lg mt-6 mb-2">
+                {t("catalog.Colors")}
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {colors?.map((color) => (
+                  <button
+                    key={color?.id}
+                    onClick={() =>
+                      setSelectedColor((prev) =>
+                        prev.includes(color?.id)
+                          ? prev.filter((id) => id !== color?.id)
+                          : [...prev, color?.id]
+                      )
+                    }
+                    className={`flex items-center space-x-1 px-3 py-1 text-xs rounded-md border transition-colors border-input cursor-pointer  ${
+                      selectedColor?.includes(color?.id)
+                        ? "bg-primary text-white"
+                        : "hover:bg-secondary"
+                    }`}
+                  >
+                    <div
+                      className="w-3 h-3 rounded-full border border-gray-200"
+                      style={{ backgroundColor: color?.color_en }}
+                    ></div>
+                    <span>
+                      {currentLng === "en"
+                        ? color?.color_en
+                        : currentLng === "ru"
+                        ? color?.color_ru
+                        : color?.color_de}
+                    </span>
+                  </button>
+                ))}
+              </div>
+
+              <button
+                onClick={handleClearFilters}
+                className="text-red-500 mt-4 underline cursor-pointer"
+              >
+                {t("catalog.Clear filters")}
+              </button>
+            </aside>
+          </div>
+        ) : (
+          ""
+        )}
         {/* Product list */}
         <div className="w-full flex-1">
           <div className="hidden md:flex justify-between items-center mb-6">
