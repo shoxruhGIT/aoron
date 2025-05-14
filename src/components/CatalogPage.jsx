@@ -225,11 +225,24 @@ const CatalogPage = () => {
             {t("catalog.Clear filters")}
           </button>
         </aside>
-        <div className="">
+        <div className="flex items-center justify-between gap-3 min-[770px]:hidden max-[460px]:flex-col">
           <button onClick={() => setModal(!modal)} className="text-2xl flex items-center gap-2">
             {t("catalog.Categories")}
             {modal ? <IoIosArrowDown className="text-2xl"/> : <MdArrowBackIosNew className="text-xl"/>}
           </button>
+          <div className="flex items-center space-x-2 min-[770px]:hidden">
+              <label className="text-sm">{t("catalog.Sort by")}:</label>
+              <div className="relative">
+                <select
+                  className="cursor-pointer bg-secondary text-sm px-2 pr-8 py-2 rounded-md focus:outline-none appearance-none w-full"
+                  value={sortOrder}
+                  onChange={(e) => setSortOrder(e.target.value)}
+                >
+                  <option value="lowToHigh">{t("catalog.lowToHigh")}</option>
+                  <option value="highToLow">{t("catalog.highToLow")}</option>
+                </select>
+              </div>
+            </div>
         </div>
         {modal ? (
           <div>
@@ -341,6 +354,7 @@ const CatalogPage = () => {
         ) : (
           ""
         )}
+
         {/* Product list */}
         <div className="w-full flex-1">
           <div className="hidden md:flex justify-between items-center mb-6">
