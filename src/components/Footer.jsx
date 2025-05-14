@@ -84,26 +84,26 @@ const Footer = () => {
             </h1>
             <nav className="flex flex-col space-y-2">
               <Link
-                to="/"
+                to="/catalog"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {t("footer.shop.all")}
               </Link>
               <Link
-                to="/"
+                to="/catalog"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {t("footer.shop.shirt")}
               </Link>
               <Link
-                to="/"
-                className="text-sm text-muted-foreground hover:text-foreground"
-                transition-colors
+                to="/catalog"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                
               >
                 {t("footer.shop.shorts")}
               </Link>
               <Link
-                to="/"
+                to="/catalog"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {t("footer.shop.suits")}
@@ -129,8 +129,7 @@ const Footer = () => {
               </Link>
               <Link
                 to="/news"
-                className="text-sm text-muted-foreground hover:text-foreground"
-                transition-colors
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {t("footer.company.policy")}
               </Link>

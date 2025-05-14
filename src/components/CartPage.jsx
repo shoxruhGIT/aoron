@@ -10,6 +10,7 @@ import { toast, Toaster } from "sonner";
 
 const CartPage = () => {
   const { wishlist, deleteWishlist, updateWishlistQuantity } = useWishlist();
+  
 
   const { t } = useTranslation();
 
@@ -39,7 +40,10 @@ const CartPage = () => {
         </h1>
         {wishlist.length >= 1 ? (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-            <CheckourModal isOpen={isOpenModal} onClose={closeModal} />
+            <CheckourModal
+              isOpen={isOpenModal}
+              onClose={closeModal}
+            />
             <div className="lg:col-span-2 space-y-6">
               {wishlist?.map((item) => (
                 <div
@@ -67,7 +71,8 @@ const CartPage = () => {
                             {t("cart.product.size")}: {item?.activeSize}
                           </p>
                           <p className="text-muted-foreground text-sm">
-                            {t("cart.product.color")}: {currentLanguage === "en"
+                            {t("cart.product.color")}:{" "}
+                            {currentLanguage === "en"
                               ? `${item?.activeColor?.color_en}`
                               : currentLanguage === "ru"
                               ? `${item?.activeColor?.color_ru}`
@@ -96,7 +101,7 @@ const CartPage = () => {
                               );
                             }
                           }}
-                          className="w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-foreground disabled:opacity-50"
+                          className="w-10 h-10 flex items-center  justify-center text-muted-foreground hover:text-foreground disabled:opacity-50 cursor-pointer"
                         >
                           <FiMinus />
                         </button>
@@ -117,7 +122,7 @@ const CartPage = () => {
                           onClick={() => {
                             updateWishlistQuantity(item?.id, item.quantity + 1);
                           }}
-                          className="w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-foreground"
+                          className="w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-foreground cursor-pointer"
                         >
                           <FiPlus />
                         </button>

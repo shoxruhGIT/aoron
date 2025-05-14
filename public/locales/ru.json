@@ -111,18 +111,20 @@
   },
   "catalog": {
     "Sort by": "Сортировать по",
-    "Price: Low to High": "Цена: от низкой к высокой",
-    "Price: High to Low": "Цена: от высокой к низкой",
+    "lowToHigh": "Цена: от низкой к высокой",
+    "highToLow": "Цена: от высокой к низкой",
     "OUR COLLECTION": "Наша коллекция",
     "Browse our collection of premium menswear, designed with quality and style in mind.": "Просмотрите нашу коллекцию премиум мужской одежды, разработанную с учетом качества и стиля.",
     "Categories": "Категории",
     "Sizes": "Размеры",
     "Colors": "Цвета",
     "Clear filters": "Очистить фильтры",
-    "View All Products": "Посмотреть все товары",
+    "all": "Посмотреть все товары",
     "T-Shirts": "Футболки",
     "Shorts": "Шорты",
-    "Suits": "Костюмы"
+    "Suits": "Костюмы",
+    "showing": "Показано",
+    "product": "товары"
   },
   "contact": {
     "title": "Связаться с нами",
@@ -163,5 +165,8 @@
       "color": "Размеры",
       "size": "Цвета"
     }
+  },
+  "noProduct": {
+    "title": "Данные не доступны"
   }
 }

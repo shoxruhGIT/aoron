@@ -113,18 +113,20 @@
   },
   "catalog": {
     "Sort by": "Sort by",
-    "Price: Low to High": "Price: Low to High",
-    "Price: High to Low": "Price: High to Low",
+    "lowToHigh": "Price: Low to High",
+    "highToLow": "Price: High to Low",
     "OUR COLLECTION": "Our Collection",
     "Browse our collection of premium menswear, designed with quality and style in mind.": "Browse our collection of premium menswear, designed with quality and style in mind.",
     "Categories": "Categories",
     "Sizes": "Sizes",
     "Colors": "Colors",
     "Clear filters": "Clear filters",
-    "View All Products": "View All Products",
+    "all": "View All Products",
     "T-Shirts": "T-Shirts",
     "Shorts": "Shorts",
-    "Suits": "Suits"
+    "Suits": "Suits",
+    "showing": "Showing",
+    "product": "products"
   },
   "contact": {
     "title": "Contact Us",
@@ -165,5 +167,8 @@
       "color": "Colors",
       "size": "Sizes"
     }
+  },
+  "noProduct": {
+    "title": "No Data Available"
   }
 }

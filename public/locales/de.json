@@ -111,18 +111,20 @@
   },
   "catalog": {
     "Sort by": "Sortieren nach",
-    "Price: Low to High": "Preis: Niedrig bis Hoch",
-    "Price: High to Low": "Preis: Hoch bis Niedrig",
+    "lowToHigh": "Preis: Niedrig bis Hoch",
+    "highToLow": "Preis: Hoch bis Niedrig",
     "OUR COLLECTION": "Unsere Kollektion",
     "Browse our collection of premium menswear, designed with quality and style in mind.": "Durchstöbern Sie unsere Kollektion von Premium-Herrenmode, die mit Blick auf Qualität und Stil entworfen wurde.",
     "Categories": "Kategorien",
     "Sizes": "Größen",
     "Colors": "Farben",
     "Clear filters": "Filter löschen",
-    "View All Products": "Alle Produkte anzeigen",
+    "all": "Alle Produkte anzeigen",
     "T-Shirts": "T-Shirts",
     "Shorts": "Shorts",
-    "Suits": "Anzüge"
+    "Suits": "Anzüge",
+    "showing": "Zeige",
+    "product": "produkte"
   },
   "contact": {
     "title": "Kontaktieren Sie uns",
@@ -163,5 +165,8 @@
       "color": "Größen",
       "size": "Farben"
     }
+  },
+  "noProduct": {
+    "title": "Daten nicht verfügbar"
   }
 }

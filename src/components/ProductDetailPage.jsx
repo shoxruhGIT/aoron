@@ -128,7 +128,7 @@ const ProductDetailPage = () => {
                         setQuantity(quantity - 1);
                       }
                     }}
-                    className="w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-foreground disabled:opacity-50"
+                    className="w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-foreground cursor-pointer disabled:opacity-50"
                   >
                     <FiMinus />
                   </button>
@@ -147,7 +147,7 @@ const ProductDetailPage = () => {
                   />
                   <button
                     onClick={() => setQuantity(quantity + 1)}
-                    className="w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-foreground"
+                    className="w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-foreground cursor-pointer"
                   >
                     <FiPlus />
                   </button>
