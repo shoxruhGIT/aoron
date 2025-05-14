@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import NoProduct from "../ui/noProduct";
-import { RiMenuUnfold2Line } from "react-icons/ri";
+import { MdArrowBackIosNew } from "react-icons/md";
+import { IoIosArrowDown } from "react-icons/io";
 
 const CatalogPage = () => {
   const { t } = useTranslation();
@@ -227,7 +228,7 @@ const CatalogPage = () => {
         <div className="">
           <button onClick={() => setModal(!modal)} className="text-2xl flex items-center gap-2">
             {t("catalog.Categories")}
-            <RiMenuUnfold2Line className="text-2xl"/>
+            {modal ? <IoIosArrowDown className="text-2xl"/> : <MdArrowBackIosNew className="text-xl"/>}
           </button>
         </div>
         {modal ? (
